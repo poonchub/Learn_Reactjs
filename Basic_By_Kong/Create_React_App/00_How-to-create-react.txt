@@ -1,0 +1,4 @@
+วิธีสร้าง React App
+    1. พิมพ์คำสั่ง npx create-react-app appName ที่ terminal และรอระบบสร้างไฟล์
+    2. พิมพ์คำสั่ง cd appName
+    3. พิมพ์คำสั่ง npm start
