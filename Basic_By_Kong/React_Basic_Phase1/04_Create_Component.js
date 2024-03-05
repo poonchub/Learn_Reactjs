@@ -7,8 +7,10 @@ Component
     รูปแบบการสร้าง Component
         1. Class Component
         2. Functional Component
-        ** โดยทั้งคู่จะ Return HTML ออกมาและเขียน JSX ด้านในส่วนของการ Return
+            ** โดยทั้งคู่จะ Return HTML ออกมาและเขียน JSX ด้านในส่วนของการ Return
         3. External Component
+            ** การเรียกใช้ต้อง import
+                import  ComponentName from './ComponentFileName'
 
         
 */
