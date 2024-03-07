@@ -16,7 +16,7 @@ Props Type
 */
 
 // Example
-/*  Transection flie
+/*  Transection.js flie
     import { v4 as uuidv4 } from 'uuid';
 
     const Transection = () =>{
@@ -39,7 +39,7 @@ Props Type
     }
 */
 
-/*  Item file
+/*  Item.js file
     import PropType form 'props-types'
 
     const Item = (props) => {

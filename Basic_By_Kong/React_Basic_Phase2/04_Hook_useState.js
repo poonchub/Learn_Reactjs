@@ -7,6 +7,7 @@
         const[age, setAge] = useState(20)
         ** จะได้ Array ที่ Destructuring จาก useState
 */
+
 const FormComponent = () =>{
 
     const [title, setTitle] = useState('')
