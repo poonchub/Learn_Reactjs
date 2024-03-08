@@ -1,0 +1,37 @@
+/*
+Item Sytle
+
+*/
+
+/*  Item.js file
+    import PropType form 'props-types'
+
+    const Item = (props) => {
+
+        const {title, amount} = props
+
+        const status = amount<0 ? "expense":"income"
+        const symbol = amount<0 ? "-":"+"
+
+        return (
+            <li className={status}>{title}<span>{symbol}{Math.abs(amount)}</span></li>
+        )
+    }
+
+    Item.propTypes={
+        title:PropTypes.string.isRequired,      //.isRequired คือบังคับให้ป้อนข้อมูลนี้
+        amount:PropTypes.number.isRequired
+    }
+
+*/
+
+/*
+    Item.css file
+    .expense{
+        border: 5px solid red;
+    }
+    .income{
+        border: 5px solid green;
+    }
+
+*/

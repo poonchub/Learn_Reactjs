@@ -1,0 +1,68 @@
+/*
+    useEffect
+        คือ ผลกระทบที่เกิดขึ้นภายใน component ใช้เพื่อต้องการทราบว่าเกิดการอัพเดตหรือเปลี่ยนแปลงอะไรขึ้นบ้างภายใน component จนส่งผลให้ component เกิดการ render ใหม่ 
+
+        โดยสาเหตุหลักๆ ที่ component remder ใหม่ จะมาจากกการเปลี่ยนแปลงค่าที่อยู่ภายใน Props และ State
+
+        การใช้งาน useEffect จึงน้ำมาใช้เพื่อตรวจสอบการเปลี่ยนแปลงที่เกิดขึ้นภายใน Application ของเราว่ามีข้อมูลส่วนใดบ้างที่เปลี่ยนแปลงไปจากค่าหนึ่งไปสู่อีกค่าหนึ่ง จนส่งผลให้ render componenet ใหม่อีกครั้ง
+
+*/
+
+/*  FormComponent.js flie
+    import {v4 as uuidv4} form 'uuid'
+    import {useEffect} form 'react'
+
+    const FormComponent = (props) =>{
+
+        const [title, setTitle] = useState('')
+        const [amount, setAmount] = useState(0)
+        const [formValid,setFormValid] = useState(false)
+
+        const inputTitle = (event) =>{
+            setTitle(event.target.value)
+        }
+
+        const inputAmount = (event) =>{
+            setAmount(event.target.value)
+        }
+
+        const saveItem = (event) =>{
+            event.preventDefault()
+            const itemData = {
+                id:uuidv4()
+                title:title,
+                amount:Number(amount)
+            }
+            props.onAddItem(itemData)
+            setTitle('')
+            setAmount(0)
+        }
+
+        ** การใช้งาน
+        useEffect(() => {
+            if (amount!==0 && title.trim().lenght>0){
+                setFormValid(true)
+            }
+        },[title, amount])
+
+        return (
+            <div>
+                <form onSubmit={saveItem}>
+                    <div className="form-control">
+                        <label for="">ชื่อรายการ</label>
+                        <input type="text" placeholder="ระบุชื่อรายการของคุณ" onChange={inputTitle} value={title}/>
+                    </div>
+                    <div className="form-control">
+                        <label for="">จำนวนเงิน</label>
+                        <input type="number" placeholder="ระบุจำนวนเงิน(+รายรับ, -รายจ่าย)" onChange={inputAmount} value={amount}/>
+                    </div>
+                    <div>
+                        <button type="submit" disabled={!formValid}>เพิ่มข้อมูลอีกที</button>
+                    </div>
+                </form>
+            </div>
+        )
+    }
+export default FormComponent
+*/
+

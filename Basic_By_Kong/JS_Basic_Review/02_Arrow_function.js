@@ -1,7 +1,7 @@
 /*
 Arrow Funtion
     เป็นรูปแบบการเขียน function ให้มีความกระชับมากขึ้น
-    แบบเก่า
+    แบบปกติ
         function functionName(paramiter){
             statement
         }
