@@ -1,0 +1,85 @@
+/*
+Context API (Global State)
+    ในรณีที่อยากให้แอพของเราามีข้อมูลกลางและอยากให้มีการแชร์ข้อมูลเกิดขึ้นใน component จะทำอย่างไร เช่น ต้องการให้ทุๆ component สามารถเข้าถึงข้อมูลชุดเดียวกันได้ โดยไม่ต้องใช้รูปแบบส่งข้อมูลจาก component แม่ ไปยัง component ลูก (Props)
+
+    มีองค์ประอบ 2 ส่วนคือ
+    1. Provider (Parent) ดูแลและจัดการข้อมูล แล้วนำไปส่งให้ Consumer
+    2. Consumer (Children) นำข้อมูลจาก Provider ไปส้างหรือแสดงผลใน component
+
+    แผนภาพการทำงาน
+    เมนู(ข้อมูล) -> พ่อครัว(Provider) -> แม่ค้า(Consumer) -> ป้านเมนู(Component)
+
+
+*/
+
+/*
+    DataContext.js file 
+
+        import {createContext} form "react";
+
+        const DataContext = createContext()
+
+        export default DataContext
+
+*/
+
+/* 
+    App.js file
+        import Transection form "Transection";
+        import FormComponent form "FormComponent";
+        import {useState} form "react";
+        import DataContext form "DataContext";      //การ import
+
+        function App() {
+
+            const [items, setItems] = useState([])
+
+            const onAddNewItem = (newItem) =>{
+                setItems((prevItem) => {
+                    return [newItem,...prevItem]
+                })
+            }
+
+            return (
+                <DataContext.Provider value={"Poonchub"}>   //การใช้งาน
+                    <div>
+                        <h1>แอพบัญชีรายรับรายจ่าย</h1>
+                        <FormComponent onAddItem = {onAddNewItem}/>
+                        <Transection item = {items}/>
+                    </div>
+                </DataContext.Provider>
+                    
+            );
+        }
+        export default App;
+
+*/
+
+/*
+    Transection.js flie
+        import { v4 as uuidv4 } from 'uuid';
+        import DataContext form "DataContext";  //การ import
+
+        const Transection = (props) =>{
+
+            const {item} = props
+
+            return {
+                <div>
+                    <ul>
+                        {item.map((element, index) => {
+
+                            return <Item {...element} key={element.id}/>
+                            
+                        })}
+                    </ul>
+
+                    // การนำมาแสดงผล
+                    <DataContext.Consumer>
+                        {value => <p>{value}</p>}
+                    </DataContext.Consumer>
+                    
+                </div>
+            }
+        }
+*/

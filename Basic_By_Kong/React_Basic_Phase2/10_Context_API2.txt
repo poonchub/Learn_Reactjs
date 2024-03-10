@@ -1,0 +1,112 @@
+/*
+    Context API (Multiple Value)
+*/
+
+/*
+    DataContext.js file 
+
+        import {createContext} form "react";
+
+        const DataContext = createContext()
+
+        export default DataContext
+
+*/
+
+/* 
+    App.js file
+        import Transection form "Transection";
+        import FormComponent form "FormComponent";
+        import {useState} form "react";
+        import DataContext form "DataContext";      //การ import
+
+        function App() {
+
+            const [items, setItems] = useState([])
+
+            const onAddNewItem = (newItem) =>{
+                setItems((prevItem) => {
+                    return [newItem,...prevItem]
+                })
+            }
+
+            return (
+                <DataContext.Provider value={   //ส่งเป็น object
+                    {
+                        income : 50000,
+                        expense : -7000
+                    }
+                }>   
+                    <div>
+                        <h1>แอพบัญชีรายรับรายจ่าย</h1>
+                        <FormComponent onAddItem = {onAddNewItem}/>
+                        <Transection item = {items}/>
+                    </div>
+                </DataContext.Provider>
+                    
+            );
+        }
+        export default App;
+
+*/
+
+/*
+    Transection.js flie
+        import { v4 as uuidv4 } from 'uuid';
+        import DataContext form "DataContext";  //การ import
+
+        const Transection = (props) =>{
+
+            const {item} = props
+
+            return {
+                <div>
+                    <ul>
+                        {item.map((element, index) => {
+
+                            return <Item {...element} key={element.id}/>
+                            
+                        })}
+                    </ul>
+
+                    // การนำมาแสดงผล
+                    <DataContext.Consumer>
+                        {value => <p>รายรับ : {value.income}</p>}
+                    </DataContext.Consumer>
+                    
+                </div>
+            }
+        }
+*/
+
+/*  ใช้ useContext
+    Transection.js flie
+        import { v4 as uuidv4 } from 'uuid';
+        import DataContext from "DataContext";  
+        import {useContext} from "react"        //การ import
+
+        const Transection = (props) =>{
+
+            const {item} = props
+
+            // การใช้งาน
+            const {income, expense} = useContext(DataContext)
+
+            return {
+                <div>
+                    <ul>
+                        {item.map((element, index) => {
+
+                            return <Item {...element} key={element.id}/>
+                            
+                        })}
+                    </ul>
+
+                    // การนำมาแสดงผล
+                    <p>รายรับ : {income}</p>
+                    <p>รายจ่าย : {expense}</p>
+                    
+                </div>
+            }
+        }
+*/

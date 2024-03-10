@@ -1,0 +1,34 @@
+/*
+    Hook useContext
+*/
+
+/*
+    Transection.js flie
+        import { v4 as uuidv4 } from 'uuid';
+        import DataContext from "DataContext";  
+        import {useContext} from "react"        //การ import
+
+        const Transection = (props) =>{
+
+            const {item} = props
+
+            // การใช้งาน
+            const name = useContext(DataContext)
+
+            return {
+                <div>
+                    <ul>
+                        {item.map((element, index) => {
+
+                            return <Item {...element} key={element.id}/>
+                            
+                        })}
+                    </ul>
+
+                    // การนำมาแสดงผล
+                    {name}
+                    
+                </div>
+            }
+        }
+*/

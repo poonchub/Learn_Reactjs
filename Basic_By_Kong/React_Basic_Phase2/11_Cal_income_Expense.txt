@@ -1,0 +1,116 @@
+/*
+    Calculate Income and Expense
+*/
+
+/* 
+    App.js file
+        import Transection form "Transection";
+        import FormComponent form "FormComponent";
+        import {useState, useEffect} form "react";
+        import DataContext form "DataContext";      //การ import
+
+        function App() {
+
+            const [items, setItems] = useState([])
+
+            // สร้าง State
+            const [reportIncome, setReportIncome] = useState(0)
+            const [reportExpense, setReportExpense] = useState(0)
+
+            // ใช้ useEffect และ reduce
+            useEffect(() => {
+                const amounts = items.map(items => item.amount)
+
+                const income = amounts.filter(element => element>0).reduce((total,element)=> total+=element, 0)
+
+                const expense = (amounts.filter(element => element<0).reduce((total,element)=> total+=element, 0))*(-1)
+
+                setReportIncome(income)
+                setReportExpense(expense)
+
+            }, [items, reportIncome, reportExpense])
+
+            const onAddNewItem = (newItem) =>{
+                setItems((prevItem) => {
+                    return [newItem,...prevItem]
+                })
+            }
+
+            return (
+                <DataContext.Provider value={   //ส่งเป็น object
+                    {
+                        income : reportIncome,
+                        expense : reportExpense
+                    }
+                }>   
+                    <div>
+                        <h1>แอพบัญชีรายรับรายจ่าย</h1>
+                        <ReportData/>
+                        <FormComponent onAddItem = {onAddNewItem}/>
+                        <Transection item = {items}/>
+                    </div>
+                </DataContext.Provider>
+                    
+            );
+        }
+        export default App;
+
+*/
+
+/*
+    ReportData.js file
+        import {useContext} from "react";
+        import DataContext from "DataContext"
+        import 'ReportData.css'
+
+        function ReportData(){
+            const {income, expense} = useContext(DataContext)
+            return (
+                <div>
+                    // การนำมาแสดงผล
+                    <h4>ยอดคงเหลือ (บาท)</h4>
+                    <h1>{income-expense}</h1>
+                    <div className="report-container">
+                        <div>
+                            <h4>ยอดรายรับ</h4>
+                            <p className="report plus">{income}</p>
+                        </div>
+                        <div>
+                            <h4>ยอดรายจ่าย</h4>
+                            <p className="report minus">{expense}</p>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+*/
+
+/*
+    ReportData.css file
+
+        .report-container{
+            display: flex;
+            justify-content: space-betweenl;
+            background-color: #fff;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .report-container>div{
+            flex: 1;
+            text-align: center
+        }
+        .report-container>div:first-of-type{
+            border-right: 1px solid #dedede
+        }
+        .report{
+            font-size: 20px;
+            letter-spacing: 1px;
+            margin: 5px 0;
+        }
+        .report.plus{
+            color: #2ecc71;   
+        }
+        .report.minus{
+            color: red;   
+        }
+*/
