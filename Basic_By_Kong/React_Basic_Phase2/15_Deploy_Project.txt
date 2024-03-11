@@ -1,0 +1,10 @@
+/*
+    Deploy Project
+        การเผยแพร่ application
+
+        ** netlify
+            https://app.netlify.com
+
+        1. เปิด netlify
+        2. build project : npm install && npm run build
+*/

@@ -1,0 +1,11 @@
+/*
+    Format Number
+
+        .toFixed(จำนวนทศนิยม)     กำหนดให้มีทศนิยม
+
+        ** ทำให้ตัวเลขมี , คั่น
+        const formatNumber = (num) => {
+            return num.tostring().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        }
+        การใช้ : formatNumber(number)
+*/

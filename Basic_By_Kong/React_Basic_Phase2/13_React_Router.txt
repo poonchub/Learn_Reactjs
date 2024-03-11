@@ -1,0 +1,89 @@
+/*
+    React Router
+        การพัฒนาแอพด้วย react ประกอบไปด้วยการแสดงผลมากว่า 1 หน้าจอ การที่จะทำให้ผู้ใช้งานไปยังส่วนการแสดงผลต่างๆ ที่เกิดขึ้นจากการใช้งาน component ในแอพ เราจะใช้ส่วนที่เรียกกว่า Route (การสร้างเส้นทาง)
+
+    การติดตั้ง
+        npm install react-router-dom
+
+        import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+
+        1. สร้าง Router เพื่อกำหนดเส้นทางการเข้าถึง component ของการกำหนด path
+        2. สร้าง Switch ในการเปลี่ยนเส้นทางการเข้าถึง component
+        3. กำหนด Link เพื่อเชื่อมโยง path กับ component
+*/
+
+/* 
+    App.js file
+        import Transection form "Transection";
+        import FormComponent form "FormComponent";
+        import {useState, useEffect} form "react";
+        import DataContext form "DataContext";
+        import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";     //import
+
+        function App() {
+
+            const [items, setItems] = useState([])
+
+            const [reportIncome, setReportIncome] = useState(0)
+            const [reportExpense, setReportExpense] = useState(0)
+
+            useEffect(() => {
+                const amounts = items.map(items => item.amount)
+
+                const income = amounts.filter(element => element>0).reduce((total,element)=> total+=element, 0)
+
+                const expense = (amounts.filter(element => element<0).reduce((total,element)=> total+=element, 0))*(-1)
+
+                setReportIncome(income)
+                setReportExpense(expense)
+
+            }, [items, reportIncome, reportExpense])
+
+            const onAddNewItem = (newItem) =>{
+                setItems((prevItem) => {
+                    return [newItem,...prevItem]
+                })
+            }
+
+            return (
+                <DataContext.Provider value={   //ส่งเป็น object
+                    {
+                        income : reportIncome,
+                        expense : reportExpense
+                    }
+                }>   
+                    <div>
+
+                        <h1>แอพบัญชีรายรับรายจ่าย</h1>
+
+                        // การใช้งาน 
+                        <Router>
+                            <ul className="horizental-menu">
+                                <li>
+                                    <Link to="/">ข้อมูลบัญชี</Link>
+                                </li>
+                                <li>
+                                    <Link to="/insert">บันทึกข้อมูล</Link>
+                                </li>
+                            </ul>
+
+                            ** อ้างอิง path
+                            <Switch>
+                                <Route path="/" exact>  //ให้ลิงค์เป็นหน้าแรก
+                                    <ReportData/>
+                                </Route>
+                                <Route path="/insert">
+                                    <FormComponent onAddItem = {onAddNewItem}/>
+                                    <Transection item = {items}/>
+                                </Route>
+                            </Switch>
+                        </Router>
+
+                    </div>
+                </DataContext.Provider>
+                    
+            );
+        }
+        export default App;
+
+*/
