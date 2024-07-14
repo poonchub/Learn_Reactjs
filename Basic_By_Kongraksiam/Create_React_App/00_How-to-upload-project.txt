@@ -1,2 +1,2 @@
 ใช้คำสั่ง npm run build
-นำโฟลเดอร์ build ไปอัพโหลด
+นำโฟลเดอร์ build ไปอัพโหลดที่ https://app.netlify.com/drop
