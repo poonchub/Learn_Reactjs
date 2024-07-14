@@ -1,0 +1,10 @@
+.anime-item img {
+    display: block;
+    width: 100%;
+}
+
+.anime-item{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
