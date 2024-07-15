@@ -12,132 +12,88 @@ import { UsersInterface } from "../../interfaces/IUser";
 
 import { Link } from "react-router-dom";
 
-
 const columns: ColumnsType<UsersInterface> = [
+  {
+    title: "ลำดับ",
 
-{
+    dataIndex: "ID",
 
-title: "ลำดับ",
+    key: "id",
+  },
 
-dataIndex: "ID",
+  {
+    title: "ชื่อ",
 
-key: "id",
+    dataIndex: "FirstName",
 
-},
+    key: "firstname",
+  },
 
-{
+  {
+    title: "นามสกุุล",
 
-title: "ชื่อ",
+    dataIndex: "LastName",
 
-dataIndex: "FirstName",
+    key: "lastname",
+  },
 
-key: "firstname",
+  {
+    title: "อีเมล",
 
-},
+    dataIndex: "Email",
 
-{
+    key: "email",
+  },
 
-title: "นามสกุุล",
+  {
+    title: "เบอร์โทร",
 
-dataIndex: "LastName",
+    dataIndex: "Phone",
 
-key: "lastname",
-
-},
-
-{
-
-title: "อีเมล",
-
-dataIndex: "Email",
-
-key: "email",
-
-},
-
-{
-
-title: "เบอร์โทร",
-
-dataIndex: "Phone",
-
-key: "phone",
-
-},
-
+    key: "phone",
+  },
 ];
 
-
 function Customers() {
+  const [users, setUsers] = useState<UsersInterface[]>([]);
 
-const [users, setUsers] = useState<UsersInterface[]>([]);
+  const getUsers = async () => {
+    let res = await GetUsers();
 
+    if (res) {
+      setUsers(res);
+    }
+  };
 
-const getUsers = async () => {
+  useEffect(() => {
+    getUsers();
+  }, []);
 
-let res = await GetUsers();
+  return (
+    <>
+      <Row>
+        <Col span={12}>
+          <h2>จัดการข้อมูลสมาชิก</h2>
+        </Col>
 
-if (res) {
+        <Col span={12} style={{ textAlign: "end", alignSelf: "center" }}>
+          <Space>
+            <Link to="/customer/create">
+              <Button type="primary" icon={<PlusOutlined />}>
+                สร้างข้อมูล
+              </Button>
+            </Link>
+          </Space>
+        </Col>
+      </Row>
 
-setUsers(res);
+      <Divider />
 
+      <div style={{ marginTop: 20 }}>
+        <Table rowKey="ID" columns={columns} dataSource={users} />
+      </div>
+    </>
+  );
 }
-
-};
-
-
-useEffect(() => {
-
-getUsers();
-
-}, []);
-
-
-return (
-
-<>
-
-<Row>
-
-<Col span={12}>
-
-<h2>จัดการข้อมูลสมาชิก</h2>
-
-</Col>
-
-<Col span={12} style={{ textAlign: "end", alignSelf: "center" }}>
-
-<Space>
-
-<Link to="/customer/create">
-
-<Button type="primary" icon={<PlusOutlined />}>
-
-สร้างข้อมูล
-
-</Button>
-
-</Link>
-
-</Space>
-
-</Col>
-
-</Row>
-
-<Divider />
-
-<div style={{ marginTop: 20 }}>
-
-<Table rowKey="ID" columns={columns} dataSource={users} />
-
-</div>
-
-</>
-
-);
-
-}
-
 
 export default Customers;
