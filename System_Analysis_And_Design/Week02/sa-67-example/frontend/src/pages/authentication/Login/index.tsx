@@ -8,6 +8,8 @@ import { SignInInterface } from "../../../interfaces/SignIn";
 
 import logo from "../../../assets/logo.png";
 
+import "../../../index.css"
+
 
 function SignInPages() {
 
@@ -56,7 +58,15 @@ function SignInPages() {
 
       {contextHolder}
 
-      <Flex justify="center" align="center" className="login">
+      <Flex 
+        className="login" 
+        style={{
+          // border:"1px solid red", 
+          justifyContent:"center",
+          alignItems:"center",
+          height:"100vh",
+        }}
+        >
 
         <Card className="card-login" style={{ width: 500 }}>
 
